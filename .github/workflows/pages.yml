@@ -75,7 +75,7 @@ jobs:
             exit 1
           fi
 
-      - name: Debug: output contents
+      - name: Debug - output contents
         run: |
           echo "Detected output: ${{ steps.outdir.outputs.dir }}"
           ls -la "${{ env.APP_DIR }}/${{ steps.outdir.outputs.dir }}"
