@@ -1,21 +1,24 @@
 name: Build and Deploy (GitHub Pages)
 
 on:
-  workflow_dispatch:
   push:
-    branches:
-        - main
+    branches: [ main ]
+  workflow_dispatch:
 
-# Required for Pages
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# Avoid parallel deploys
 concurrency:
   group: "pages"
   cancel-in-progress: true
+
+env:
+  # Change this if your app is in a subfolder, e.g. "frontend"
+  APP_DIR: .
+  # Default build dir; will auto-swap to "dist" if it exists
+  BUILD_DIR: build
 
 jobs:
   build:
@@ -24,33 +27,78 @@ jobs:
       - name: Checkout 🛎️
         uses: actions/checkout@v4
 
+      - name: Debug: repo layout
+        run: |
+          echo "Top-level files:" && ls -la
+          echo "App dir: $APP_DIR" && ls -la "$APP_DIR"
+
       - name: Setup Node 🔧
         uses: actions/setup-node@v4
         with:
           node-version: 20.x
           cache: 'npm'
+          cache-dependency-path: ${{ env.APP_DIR }}/package-lock.json
 
-      - name: Install & Build 🔧
+      - name: Install deps (lock-aware) 📦
+        working-directory: ${{ env.APP_DIR }}
+        run: |
+          if [ -f package-lock.json ]; then
+            npm ci
+          else
+            echo "No package-lock.json found, running npm install"
+            npm install
+          fi
+
+      - name: Build 🔨
+        working-directory: ${{ env.APP_DIR }}
         env:
-          # Only REACT_APP_* vars are exposed to the build
+          # expose only what the build needs
           REACT_APP_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_USERNAME: ${{ github.repository_owner }}
           USE_GITHUB_DATA: "true"
           MEDIUM_USERNAME: "rajawat_yagya"
           CI: "false"
         run: |
-          npm ci
-          npm run build
+          npm run build || (echo "::error::Build failed" && exit 1)
 
-      # Prepare Pages (recommended in docs)
+      - name: Auto-detect output dir
+        id: outdir
+        working-directory: ${{ env.APP_DIR }}
+        run: |
+          if [ -d "build" ]; then
+            echo "dir=build" >> $GITHUB_OUTPUT
+          elif [ -d "dist" ]; then
+            echo "dir=dist" >> $GITHUB_OUTPUT
+          else
+            echo "::error::No build output directory found (expected build/ or dist/)."
+            echo "Contents:" && ls -la
+            exit 1
+          fi
+
+      - name: Debug: output contents
+        run: |
+          echo "Detected output: ${{ steps.outdir.outputs.dir }}"
+          ls -la "${{ env.APP_DIR }}/${{ steps.outdir.outputs.dir }}"
+
       - name: Configure Pages
         uses: actions/configure-pages@v5
 
-      # Upload the static site as a Pages artifact
       - name: Upload Pages Artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./build
+          path: ${{ env.APP_DIR }}/${{ steps.outdir.outputs.dir }}
+
+      # Always keep a copy of build logs/files for debugging
+      - name: Upload debug artifact (always)
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: debug-build-output
+          path: |
+            ${{ env.APP_DIR }}/package.json
+            ${{ env.APP_DIR }}/package-lock.json
+            ${{ env.APP_DIR }}/${{ steps.outdir.outputs.dir }}
+          if-no-files-found: warn
 
   deploy:
     environment:
