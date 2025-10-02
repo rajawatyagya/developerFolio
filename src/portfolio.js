@@ -34,10 +34,14 @@ const greeting = {
 };
 
 const socialMediaLinks = {
+  /* Your Social Media Link */
   github: "https://github.com/rajawatyagya",
-  // Add LinkedIn/Twitter only if you want them public
+  linkedin: "https://www.linkedin.com/in/rajawatyagya/",
+  gmail: "rajawatyagya@gmail.com",
+  gitlab: "https://gitlab.com/rajawatyagya",
+  facebook: "https://www.facebook.com/yagya.bits",
   display: true
-};
+}
 
 const skillsSection = {
   title: "Core Skills",
