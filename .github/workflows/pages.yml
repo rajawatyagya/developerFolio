@@ -27,7 +27,7 @@ jobs:
       - name: Checkout 🛎️
         uses: actions/checkout@v4
 
-      - name: Debug: repo layout
+      - name: Debug- repo layout
         run: |
           echo "Top-level files:" && ls -la
           echo "App dir: $APP_DIR" && ls -la "$APP_DIR"
