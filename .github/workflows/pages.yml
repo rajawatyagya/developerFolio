@@ -1,9 +1,10 @@
 name: Build and Deploy (GitHub Pages)
 
 on:
-  push:
-    branches: [ main ]
   workflow_dispatch:
+  push:
+    branches:
+        - main
 
 # Required for Pages
 permissions:
