@@ -30,7 +30,8 @@ const greeting = {
   subTitle: `Senior Backend Engineer with 8+ years designing and scaling SaaS APIs and cloud-native architectures. Proven expertise in Python, SQLAlchemy, AioHttp, Pandas, NumPy, and Postgres for high-volume enterprise systems.`,
   resumeLink: "/resume/Yagya_Singh_Senior_Software_Developer.pdf", // put the PDF under public/resume/
   portfolio_repository: "https://github.com/rajawatyagya/developerFolio",
-  githubProfile: "https://github.com/rajawatyagya"
+  githubProfile: "https://github.com/rajawatyagya",
+  displayGreeting: true
 };
 
 const socialMediaLinks = {
@@ -79,10 +80,10 @@ const skillsSection = {
 const techStack = {
   viewSkillBars: true,
   experience: [
-    { Stack: "Python / Backend Architecture", progressPercentage: "90" },
-    { Stack: "Data (Pandas / NumPy / SQL)", progressPercentage: "85" },
-    { Stack: "Cloud (AWS / Azure / GCP)", progressPercentage: "75" },
-    { Stack: "CI/CD & DevOps", progressPercentage: "75" }
+    { Stack: "Python / Backend Architecture", progressPercentage: "90%" },
+    { Stack: "Data (Pandas / NumPy / PostgreSQL)", progressPercentage: "85%" },
+    { Stack: "Cloud (AWS / Azure / GCP)", progressPercentage: "80%" },
+    { Stack: "CI/CD & DevOps", progressPercentage: "75%" }
   ],
   displayCodersrank: false
 };
@@ -103,22 +104,27 @@ const bigProjects = {
 };
 
 const achievementSection = {
-  title: "Key Achievements",
+  title: emoji("Achievements And Certifications 🏆 "),
+  subtitle:
+    "Achievements, Certifications, Award Letters and Some Cool Stuff that I have done !",
   achievementsCards: [
     {
       title: "Internet-scale SaaS APIs",
       subtitle:
         "Built & deployed APIs with high uptime and performance benchmarks.",
+      footerLink: []
     },
     {
       title: "Infrastructure Cost Optimization",
       subtitle:
         "Reduced infra costs by ~25% through backend & transport algorithm optimization.",
+      footerLink: []
     },
     {
       title: "Recognitions",
       subtitle:
-        "Recognized for system scalability & architecture design in edtech, SaaS, and supply chain domains."
+        "Recognized for system scalability & architecture design in edtech, SaaS, and supply chain domains.",
+      footerLink: []
     }
   ],
   display: true
@@ -130,7 +136,7 @@ const workExperiences = {
     {
       role: "Senior Software Developer",
       company: "Ernst & Young LLP",
-      companylogo: "", // add a logo file if desired
+      companylogo: require("./assets/images/ey_logo.png"), // add a logo file if desired
       date: "Dec 2020 – Present",
       desc: "Bangalore, India",
       descBullets: [
@@ -145,7 +151,7 @@ const workExperiences = {
     {
       role: "Chief Technical Officer",
       company: "Iboxz Technologies Pvt. Ltd.",
-      companylogo: "",
+      companylogo: require("./assets/images/iboxz_logo.png"),
       date: "Apr 2018 – Dec 2020",
       desc: "Bangalore, India",
       descBullets: [
@@ -158,7 +164,7 @@ const workExperiences = {
     {
       role: "Assistant Manager",
       company: "National Payments Corporation of India (NPCI)",
-      companylogo: "",
+      companylogo: require("./assets/images/npci_logo.png"),
       date: "Jul 2016 – Oct 2017",
       desc: "Hyderabad, India",
       descBullets: [
@@ -195,6 +201,15 @@ const contactInfo = {
   display: true
 };
 
+// Resume Section
+const resumeSection = {
+  title: "Resume",
+  subtitle: "Feel free to download my resume",
+
+  // Please Provide with Your Podcast embeded Link
+  display: true // Set false to hide this section, defaults to true
+};
+
 const projectsHeader = {
   title: "Projects",
   description:
@@ -219,6 +234,19 @@ const talkSection = {
   display: false
 };
 
+// Podcast Section
+
+const podcastSection = {
+  title: emoji("Podcast 🎙️"),
+  subtitle: "I LOVE TO TALK ABOUT MYSELF AND TECHNOLOGY",
+
+  // Please Provide with Your Podcast embeded Link
+  podcast: [
+    ""
+  ],
+  display: false // Set false to hide this section, defaults to true
+};
+
 const addressSection = {
   title: "Address",
   subtitle: "Bangalore, India",
@@ -229,21 +257,25 @@ const twitterDetails = {
   userName: "",
   display: false
 };
+const isHireable = true;
 
 export {
+  illustration,
   greeting,
   socialMediaLinks,
+  splashScreen,
   skillsSection,
+  educationInfo,
   techStack,
   workExperiences,
-  educationInfo,
-  achievementSection,
   openSource,
   bigProjects,
-  projectsHeader,
+  achievementSection,
   blogSection,
   talkSection,
   contactInfo,
-  addressSection,
-  twitterDetails
+  twitterDetails,
+  isHireable,
+  resumeSection,
+  podcastSection
 };
