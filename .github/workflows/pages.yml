@@ -1,0 +1,63 @@
+name: Build and Deploy (GitHub Pages)
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+# Required for Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Avoid parallel deploys
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v4
+
+      - name: Setup Node 🔧
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.x
+          cache: 'npm'
+
+      - name: Install & Build 🔧
+        env:
+          # Only REACT_APP_* vars are exposed to the build
+          REACT_APP_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_USERNAME: ${{ github.repository_owner }}
+          USE_GITHUB_DATA: "true"
+          MEDIUM_USERNAME: "rajawat_yagya"
+          CI: "false"
+        run: |
+          npm ci
+          npm run build
+
+      # Prepare Pages (recommended in docs)
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      # Upload the static site as a Pages artifact
+      - name: Upload Pages Artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./build
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages 🚀
+        id: deployment
+        uses: actions/deploy-pages@v4
