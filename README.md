@@ -229,4 +229,4 @@ This section guides you to deploy your portfolio on GitHub pages.
 - Follow through the guide to setup GitHub pages from the official CRA docs [here](https://create-react-app.dev/docs/deployment/#github-pages).
 
 ---
-Readme file is for my use, for the full readme, please visit the source of this fork [SaaaPasta](https://github.com/saadpasta/developerFolio)
+Readme file is for my use, for the full readme, please visit the source of this fork [SaadPasta](https://github.com/saadpasta/developerFolio)
