@@ -57,6 +57,10 @@ jobs:
           GITHUB_USERNAME: ${{ github.repository_owner }}
           USE_GITHUB_DATA: "true"
           MEDIUM_USERNAME: "rajawat_yagya"
+          REACT_APP_API_HOSTNAME: "https://yagyasingh.rajawatyagya.dev"
+          REACT_APP_CONTENT: "Backend Python Developer with experience in building scalable and efficient backend systems."
+          REACT_APP_TITLE: "Yagya Singh | Portfolio"
+          REACT_APP_KEYWORDS_SEO: "Yagya Singh,Developer,Portfolio,Software Developer,Backend Developer,Python Developer,Full Stack Developer,Web Developer,Full Stack Engineer,Full Stack Software Engineer, Full Stack Software Developer,Full Stack"
           CI: "false"
         run: |
           npm run build || (echo "::error::Build failed" && exit 1)
