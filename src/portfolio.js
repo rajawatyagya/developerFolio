@@ -42,7 +42,7 @@ const socialMediaLinks = {
   gitlab: "https://gitlab.com/rajawatyagya",
   facebook: "https://www.facebook.com/yagya.bits",
   display: true
-}
+};
 
 const skillsSection = {
   title: "Core Skills",
@@ -56,23 +56,23 @@ const skillsSection = {
     "CI/CD, Git, containerized deployments; microservices patterns"
   ],
   softwareSkills: [
-    { skillName: "Python" },
-    { skillName: "AioHttp" },
-    { skillName: "SQLAlchemy" },
-    { skillName: "Asyncio" },
-    { skillName: "Redis" },
-    { skillName: "Pandas" },
-    { skillName: "NumPy" },
-    { skillName: "PostgreSQL" },
-    { skillName: "Oracle" },
-    { skillName: "AWS" },
-    { skillName: "Azure" },
-    { skillName: "GCP" },
-    { skillName: "Angular" },
-    { skillName: "React Native" },
-    { skillName: "CI/CD" },
-    { skillName: "Git" },
-    { skillName: "Docker" }
+    {skillName: "Python"},
+    {skillName: "AioHttp"},
+    {skillName: "SQLAlchemy"},
+    {skillName: "Asyncio"},
+    {skillName: "Redis"},
+    {skillName: "Pandas"},
+    {skillName: "NumPy"},
+    {skillName: "PostgreSQL"},
+    {skillName: "Oracle"},
+    {skillName: "AWS"},
+    {skillName: "Azure"},
+    {skillName: "GCP"},
+    {skillName: "Angular"},
+    {skillName: "React Native"},
+    {skillName: "CI/CD"},
+    {skillName: "Git"},
+    {skillName: "Docker"}
   ],
   display: true
 };
@@ -80,10 +80,10 @@ const skillsSection = {
 const techStack = {
   viewSkillBars: true,
   experience: [
-    { Stack: "Python / Backend Architecture", progressPercentage: "90%" },
-    { Stack: "Data (Pandas / NumPy / PostgreSQL)", progressPercentage: "85%" },
-    { Stack: "Cloud (AWS / Azure / GCP)", progressPercentage: "80%" },
-    { Stack: "CI/CD & DevOps", progressPercentage: "75%" }
+    {Stack: "Python / Backend Architecture", progressPercentage: "90%"},
+    {Stack: "Data (Pandas / NumPy / PostgreSQL)", progressPercentage: "85%"},
+    {Stack: "Cloud (AWS / Azure / GCP)", progressPercentage: "80%"},
+    {Stack: "CI/CD & DevOps", progressPercentage: "75%"}
   ],
   displayCodersrank: false
 };
@@ -180,11 +180,9 @@ const educationInfo = {
   display: true,
   schools: [
     {
-      schoolName:
-        "Birla Institute of Technology & Science (BITS), Pilani",
+      schoolName: "Birla Institute of Technology & Science (BITS), Pilani",
       logo: "",
-      subHeader:
-        "Master of Science (MSc. Tech), Information Systems",
+      subHeader: "Master of Science (MSc. Tech), Information Systems",
       duration: "2012 – 2016",
       desc: ""
     }
@@ -228,8 +226,7 @@ const blogSection = {
 
 const talkSection = {
   title: "Talks",
-  subtitle:
-    "Add talks here if you want this section visible.",
+  subtitle: "Add talks here if you want this section visible.",
   talks: [],
   display: false
 };
@@ -241,9 +238,7 @@ const podcastSection = {
   subtitle: "I LOVE TO TALK ABOUT MYSELF AND TECHNOLOGY",
 
   // Please Provide with Your Podcast embeded Link
-  podcast: [
-    ""
-  ],
+  podcast: [""],
   display: false // Set false to hide this section, defaults to true
 };
 

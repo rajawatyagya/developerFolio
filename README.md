@@ -31,7 +31,7 @@ Just change `src/portfolio.js` to get your personal portfolio. Customize portfol
 ✔️ Twitter Timeline\
 ✔️ GitHub Profile
 
-To view a live example, **[click here](https://developerfolio.js.org/)**.
+To view a live example, **[click here](https://yagyasingh.rajawat.dev/)**.
 
 
 ## Getting Started
@@ -113,10 +113,6 @@ Set `showGithubProfile` to true or false to show Contact Profile using GitHub, d
 
 Note: Open Source Projects section only show pinned items of your GitHub.
 If you are seeing something as shown below, follow these [instructions](https://docs.github.com/en/enterprise/2.13/user/articles/pinning-items-to-your-profile).
-
-![ERROR](https://i.imgur.com/Hj6mu1K.png)
-
-If the above solution still doesn't work, visit the [wiki page](https://github.com/saadpasta/developerFolio/wiki/Github-Setup-For-Open-Source-Projects).
 
 ## Linking blogs section to Medium
 
