@@ -1,16 +1,16 @@
 import React, {useContext} from "react";
 import "./Contact.scss";
 import SocialMedia from "../../components/socialMedia/SocialMedia";
-import {illustration, contactInfo} from "../../portfolio";
-import {Fade} from "react-reveal";
+import {contactInfo, illustration} from "../../portfolio";
 import email from "../../assets/lottie/email";
 import DisplayLottie from "../../components/displayLottie/DisplayLottie";
 import StyleContext from "../../contexts/StyleContext";
+import Animate from "../../assets/utils/Animate";
 
 export default function Contact() {
   const {isDark} = useContext(StyleContext);
   return (
-    <Fade bottom duration={1000} distance="20px">
+    <Animate type="fade-bottom">
       <div className="main contact-margin-top" id="contact">
         <div className="contact-div-main">
           <div className="contact-header">
@@ -64,6 +64,6 @@ export default function Contact() {
           </div>
         </div>
       </div>
-    </Fade>
+    </Animate>
   );
 }

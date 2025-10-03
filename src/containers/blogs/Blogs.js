@@ -1,9 +1,10 @@
-import React, {useState, useEffect, useContext} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import "./Blog.scss";
 import BlogCard from "../../components/blogCard/BlogCard";
 import {blogSection} from "../../portfolio";
-import {Fade} from "react-reveal";
 import StyleContext from "../../contexts/StyleContext";
+import Animate from "../../assets/utils/Animate";
+
 export default function Blogs() {
   const {isDark} = useContext(StyleContext);
   const [mediumBlogs, setMediumBlogs] = useState([]);
@@ -48,7 +49,7 @@ export default function Blogs() {
     return null;
   }
   return (
-    <Fade bottom duration={1000} distance="20px">
+    <Animate type="fade-bottom">
       <div className="main" id="blogs">
         <div className="blog-header">
           <h1 className="blog-header-text">{blogSection.title}</h1>
@@ -94,6 +95,6 @@ export default function Blogs() {
           </div>
         </div>
       </div>
-    </Fade>
+    </Animate>
   );
 }

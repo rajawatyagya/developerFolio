@@ -2,15 +2,15 @@ import React, {useContext} from "react";
 import "./Achievement.scss";
 import AchievementCard from "../../components/achievementCard/AchievementCard";
 import {achievementSection} from "../../portfolio";
-import {Fade} from "react-reveal";
 import StyleContext from "../../contexts/StyleContext";
+import Animate from "../../assets/utils/Animate";
 export default function Achievement() {
   const {isDark} = useContext(StyleContext);
   if (!achievementSection.display) {
     return null;
   }
   return (
-    <Fade bottom duration={1000} distance="20px">
+    <Animate type="fade-bottom">
       <div className="main" id="achievements">
         <div className="achievement-main-div">
           <div className="achievement-header">
@@ -52,6 +52,6 @@ export default function Achievement() {
           </div>
         </div>
       </div>
-    </Fade>
+    </Animate>
   );
 }

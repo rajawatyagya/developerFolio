@@ -1,7 +1,7 @@
 import React from "react";
 import "./GithubRepoCard.scss";
-import {Fade} from "react-reveal";
 import {formatFileSizeDisplay} from "../../utils";
+import Animate from "../../assets/utils/Animate";
 
 export default function GithubRepoCard({repo, isDark}) {
   function openUrlInNewTab(url, name) {
@@ -14,7 +14,7 @@ export default function GithubRepoCard({repo, isDark}) {
   }
 
   return (
-    <Fade bottom duration={1000} distance="20px">
+    <Animate as="div" type="fade-bottom">
       <div>
         <div
           className={isDark ? "dark-card-mode repo-card-div" : "repo-card-div"}
@@ -90,6 +90,6 @@ export default function GithubRepoCard({repo, isDark}) {
           </div>
         </div>
       </div>
-    </Fade>
+    </Animate>
   );
 }

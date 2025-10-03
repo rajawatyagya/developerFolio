@@ -1,18 +1,18 @@
 import React, {useContext} from "react";
-import Headroom from "react-headroom";
 import "./Header.scss";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 import StyleContext from "../../contexts/StyleContext";
 import {
-  greeting,
-  workExperiences,
-  skillsSection,
-  openSource,
-  blogSection,
-  talkSection,
   achievementSection,
-  resumeSection
+  blogSection,
+  greeting,
+  openSource,
+  resumeSection,
+  skillsSection,
+  talkSection,
+  workExperiences
 } from "../../portfolio";
+import HeaderWrapper from "../../assets/utils/HeaderWrapper";
 
 function Header() {
   const {isDark} = useContext(StyleContext);
@@ -25,7 +25,7 @@ function Header() {
   const viewResume = resumeSection.display;
 
   return (
-    <Headroom>
+    <HeaderWrapper>
       <header className={isDark ? "dark-menu header" : "header"}>
         <a href="/" className="logo">
           <span className="grey-color"> &lt;</span>
@@ -87,7 +87,7 @@ function Header() {
           </li>
         </ul>
       </header>
-    </Headroom>
+    </HeaderWrapper>
   );
 }
 export default Header;

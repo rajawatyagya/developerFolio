@@ -1,8 +1,8 @@
 import React, {useContext} from "react";
 import "./Podcast.scss";
 import {podcastSection} from "../../portfolio";
-import {Fade} from "react-reveal";
 import StyleContext from "../../contexts/StyleContext";
+import Animate from "../../assets/utils/Animate";
 
 export default function Podcast() {
   const {isDark} = useContext(StyleContext);
@@ -14,7 +14,7 @@ export default function Podcast() {
     return null;
   }
   return (
-    <Fade bottom duration={1000} distance="20px">
+    <Animate type="fade-bottom">
       <div className="main">
         <div className="podcast-header">
           <h1 className="podcast-header-title">{podcastSection.title}</h1>
@@ -49,6 +49,6 @@ export default function Podcast() {
           })}
         </div>
       </div>
-    </Fade>
+    </Animate>
   );
 }

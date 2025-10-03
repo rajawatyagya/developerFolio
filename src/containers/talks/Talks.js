@@ -2,8 +2,8 @@ import React, {useContext} from "react";
 import "./Talks.scss";
 import TalkCard from "../../components/talkCard/TalkCard";
 import {talkSection} from "../../portfolio";
-import {Fade} from "react-reveal";
 import StyleContext from "../../contexts/StyleContext";
+import Animate from "../../assets/utils/Animate";
 
 export default function Talks() {
   const {isDark} = useContext(StyleContext);
@@ -11,7 +11,7 @@ export default function Talks() {
     return null;
   }
   return (
-    <Fade bottom duration={1000} distance="20px">
+    <Animate type="fade-bottom">
       <div className="main" id="talks">
         <div className="talk-header">
           <h1 className="talk-header-title">{talkSection.title}</h1>
@@ -41,6 +41,6 @@ export default function Talks() {
           })}
         </div>
       </div>
-    </Fade>
+    </Animate>
   );
 }

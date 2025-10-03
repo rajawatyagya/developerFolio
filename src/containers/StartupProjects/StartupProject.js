@@ -1,8 +1,8 @@
 import React, {useContext} from "react";
 import "./StartupProjects.scss";
 import {bigProjects} from "../../portfolio";
-import {Fade} from "react-reveal";
 import StyleContext from "../../contexts/StyleContext";
+import Animate from "../../assets/utils/Animate";
 
 export default function StartupProject() {
   function openUrlInNewTab(url) {
@@ -18,7 +18,7 @@ export default function StartupProject() {
     return null;
   }
   return (
-    <Fade bottom duration={1000} distance="20px">
+    <Animate as="div" type="fade-bottom">
       <div className="main" id="projects">
         <div>
           <h1 className="skills-heading">{bigProjects.title}</h1>
@@ -89,6 +89,6 @@ export default function StartupProject() {
           </div>
         </div>
       </div>
-    </Fade>
+    </Animate>
   );
 }

@@ -1,18 +1,18 @@
 import React, {useContext} from "react";
 import "./Footer.scss";
-import {Fade} from "react-reveal";
 import emoji from "react-easy-emoji";
 import StyleContext from "../../contexts/StyleContext";
+import Animate from "../../assets/utils/Animate";
 
 export default function Footer() {
   const {isDark} = useContext(StyleContext);
   return (
-    <Fade bottom duration={1000} distance="5px">
+    <Animate as="h1" type="fade-bottom">
       <div className="footer-div">
         <p className={isDark ? "dark-mode footer-text" : "footer-text"}>
           {emoji("Forked from DeveloperFolio")}
         </p>
       </div>
-    </Fade>
+    </Animate>
   );
 }
