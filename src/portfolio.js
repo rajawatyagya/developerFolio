@@ -24,7 +24,7 @@ const illustration = {
 // No speculative additions.
 
 const greeting = {
-  username: require("./logo.png"),
+  username: require("./logo.svg"),
   title: "Hi, I’m Yagya Singh",
   logo_name: "YagyaSingh",
   nickname: "",
