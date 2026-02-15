@@ -54,7 +54,9 @@ const skillsSection = {
     "Python backends with SQLAlchemy, AioHttp, Asyncio, Redis",
     "Data engineering & analytics with Pandas and NumPy",
     "PostgreSQL, Oracle, SQL; performance tuning and profiling",
-    "CI/CD, Git, containerized deployments; microservices patterns"
+    "CI/CD, Git, containerized deployments; microservices patterns",
+    "Applied quantitative thinking for financial engineering style problems (pricing/analytics mindset)",
+    "Automation-first workflows (agents, tooling, internal platforms)"
   ],
   softwareSkills: [
     {skillName: "Python"},
@@ -73,7 +75,10 @@ const skillsSection = {
     {skillName: "React Native"},
     {skillName: "CI/CD"},
     {skillName: "Git"},
-    {skillName: "Docker"}
+    {skillName: "Docker"},
+    {skillName: "Systems Design"},
+    {skillName: "Observability"},
+    {skillName: "Distributed Systems"}
   ],
   display: true
 };
@@ -135,10 +140,23 @@ const workExperiences = {
   display: true,
   experience: [
     {
+      role: "Backend Engineer",
+      company: "JPMorgan Chase",
+      // TODO: replace with an official logo file under src/assets/images/
+      companylogo: require("./assets/images/codeInLogo.webp"),
+      date: "Dec 2025 – Present",
+      desc: "Bangalore, India",
+      descBullets: [
+        "Building and operating backend services for high-scale financial systems with a focus on reliability, security, and performance.",
+        "Developing APIs and data pipelines with Python and SQL; improving observability and operational readiness.",
+        "Collaborating with cross-functional teams to ship production-grade features with strong quality and change-management discipline."
+      ]
+    },
+    {
       role: "Senior Software Developer",
       company: "Ernst & Young LLP",
-      companylogo: require("./assets/images/ey_logo.png"), // add a logo file if desired
-      date: "Dec 2020 – Present",
+      companylogo: require("./assets/images/ey_logo.png"),
+      date: "Dec 2020 – Nov 2025",
       desc: "Bangalore, India",
       descBullets: [
         "Designed & scaled SaaS APIs in Python with SQLAlchemy, AioHttp, Pandas, and NumPy, deployed on AWS/Azure for internet-scale workloads.",
