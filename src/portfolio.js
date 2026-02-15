@@ -140,7 +140,7 @@ const workExperiences = {
   display: true,
   experience: [
     {
-      role: "Backend Engineer",
+      role: "SDE III (Software Development Engineer III)",
       company: "JPMorgan Chase",
       // TODO: replace with an official logo file under src/assets/images/
       companylogo: require("./assets/images/codeInLogo.webp"),
